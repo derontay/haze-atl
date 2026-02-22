@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HAZE ATL | Hookah • Food • Vibes</title>
+  <meta name="description" content="HAZE ATL — Hookah • Food • Vibes near ATL Airport (College Park / Old National Hwy). Reservations and events." />
+  <style>
+    :root{
+      --bg:#0b0b10; --card:#11111a; --muted:#b9b9c9; --text:#f4f4ff;
+      --accent:#8a5cff; --accent2:#2ee59d; --line:rgba(255,255,255,.12);
+      --shadow: 0 12px 40px rgba(0,0,0,.55); --radius:18px; --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text); line-height:1.45;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(138,92,255,.25), transparent 60%),
+        radial-gradient(900px 600px at 80% 10%, rgba(46,229,157,.16), transparent 55%),
+        var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,11,16,.85), rgba(11,11,16,.35));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.7px}
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 22px rgba(138,92,255,.25);
+    }
+    .links{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
+    .links a{color:var(--muted); padding:10px 12px; border-radius:12px; border:1px solid transparent}
+    .links a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:14px; font-weight:700;
+      border:1px solid var(--line); background:rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(138,92,255,.95), rgba(46,229,157,.55));
+      border-color: rgba(255,255,255,.14);
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .card{
+      border:1px solid var(--line); border-radius:var(--radius);
+      background: rgba(17,17,26,.72); box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .hero{padding:56px 0 22px}
+    .heroGrid{display:grid; grid-template-columns:1.15fr .85fr; gap:22px}
+    @media (max-width: 900px){ .heroGrid{grid-template-columns:1fr} }
+    .headline{
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height:1.02; margin:0 0 10px; letter-spacing:-.8px;
+    }
+    .sub{margin:0 0 18px; color:var(--muted); font-size:16px; max-width:60ch}
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 18px}
+    .pill{
+      padding:10px 12px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(255,255,255,.04); color:var(--muted); font-size:14px;
+    }
+    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .section{padding:22px 0}
+    .section h2{margin:0 0 10px; font-size:22px; letter-spacing:-.3px}
+    .grid3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+    .item h3{margin:0 0 6px; font-size:16px}
+    .item p{margin:0; color:var(--muted); font-size:14px}
+    .divider{height:1px; background:var(--line); margin:20px 0}
+    .gallery{display:grid; gap:12px; grid-template-columns:repeat(4, 1fr)}
+    @media (max-width: 900px){ .gallery{grid-template-columns:repeat(2, 1fr)} }
+    .ph{
+      aspect-ratio: 1/1; border-radius:16px;
+      border:1px dashed rgba(255,255,255,.22);
+      background: rgba(255,255,255,.03);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,.35); font-weight:700; letter-spacing:.8px; font-size:12px;
+      text-transform:uppercase;
+    }
+    footer{padding:26px 0 40px; color:var(--muted)}
+    .twoCol{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 900px){ .twoCol{grid-template-columns:1fr} }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12px; padding:2px 6px; border:1px solid var(--line);
+      border-radius:8px; background: rgba(255,255,255,.04); color: var(--text);
+    }
+    .note{
+      border-left:4px solid rgba(138,92,255,.75);
+      padding:12px 14px; background: rgba(138,92,255,.08);
+      border-radius: 14px; color: var(--muted); font-size:14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; color:var(--muted); font-weight:700">HAZE ATL</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.45)">Hookah • Food • Vibes</div>
+        </div>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="#menu">Menu</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+        <a class="btn primary" href="#reserve">Reserve</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="heroGrid">
+        <div class="card">
+          <h1 class="headline">HAZE ATL</h1>
+          <p class="sub">
+            Premium hookah, great food, and a vibe that hits — near ATL Airport in College Park off Old National Hwy.
+            Pull up for events, music, and clean lounge energy.
+          </p>
+
+          <div class="pillRow">
+            <div class="pill">🔥 Premium Hookah</div>
+            <div class="pill">🍽️ Food & Bites</div>
+            <div class="pill">🎧 Events & DJs</div>
+            <div class="pill">📍 Near ATL Airport</div>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" href="#reserve">Book / Reserve</a>
+            <a class="btn" href="#location">Get Directions</a>
+            <a class="btn" href="#menu">View Menu Highlights</a>
+          </div>
+
+          <div style="color:var(--muted); font-size:13px; margin-top:14px;">
+            Quick launch: replace hours, address, menu, phone, and IG.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin:0 0 10px">Tonight’s Vibe</h2>
+          <div class="note">
+            <strong style="color:var(--text)">Next:</strong> once you send your real hours, address, IG handle,
+            and top menu items, I’ll rewrite the copy to match your brand.
+          </div>
+          <div class="divider"></div>
+
+          <div class="grid3" style="grid-template-columns:1fr; gap:12px">
+            <div class="item card" style="box-shadow:none; background:rgba(255,255,255,.03)">
+              <h3>Reservations</h3>
+              <p>Tables, sections, birthdays, and special events.</p>
+            </div>
+            <div class="item card" style="box-shadow:none; background:rgba(255,255,255,.03)">
+              <h3>Weekly Events</h3>
+              <p>DJ nights, themed parties, and late-night energy.</p>
+            </div>
+            <div class="item card" style="box-shadow:none; background:rgba(255,255,255,.03)">
+              <h3>Dress Code</h3>
+              <p>Upscale casual — come clean and bring the right energy.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <h2>Menu Highlights</h2>
+      <p class="sub">Replace these with your real offerings.</p>
+
+      <div class="grid3">
+        <div class="card item">
+          <h3>Hookah</h3>
+          <p>Classic + premium flavors • fruit • mint • dessert • custom mixes.</p>
+        </div>
+        <div class="card item">
+          <h3>Food</h3>
+          <p>Wings • sliders • seafood bites • fries • late-night plates.</p>
+        </div>
+        <div class="card item">
+          <h3>Drinks</h3>
+          <p>Mocktails • juices • signature mixes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <h2>Events</h2>
+      <div class="twoCol">
+        <div class="card">
+          <h3 style="margin:0 0 6px">Book a Section</h3>
+          <p class="sub" style="margin:0">
+            Birthdays, celebrations, and curated nights. Tell us the date and party size.
+          </p>
+          <div class="actions" style="margin-top:14px">
+            <a class="btn primary" href="#reserve">Request a Reservation</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px">Weekly Lineup (Example)</h3>
+          <p class="sub" style="margin:0">
+            Thu: R&B Night • Fri: DJ + Party • Sat: Signature Night • Sun: Chill Lounge
+          </p>
+          <div style="color:var(--muted); font-size:13px; margin-top:10px;">Replace with your real schedule.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <h2>Gallery</h2>
+      <p class="sub">Add real photos later — placeholders for now.</p>
+      <div class="gallery">
+        <div class="ph">Photo 1</div>
+        <div class="ph">Photo 2</div>
+        <div class="ph">Photo 3</div>
+        <div class="ph">Photo 4</div>
+      </div>
+    </section>
+
+    <section class="section" id="location">
+      <h2>Location & Hours</h2>
+      <div class="twoCol">
+        <div class="card">
+          <h3 style="margin:0 0 8px">Address</h3>
+          <p class="sub" style="margin:0">
+            College Park, GA — Off Old National Hwy (near ATL Airport)<br/>
+            <span class="kbd">Replace with full street address</span>
+          </p>
+          <div class="divider"></div>
+          <h3 style="margin:0 0 8px">Hours</h3>
+          <p class="sub" style="margin:0">
+            Mon–Thu: 6PM–12AM<br/>
+            Fri–Sat: 6PM–2AM<br/>
+            Sun: 6PM–12AM<br/>
+            <span class="kbd">Replace with your real hours</span>
+          </p>
+        </div>
+
+        <div class="card" id="reserve">
+          <h3 style="margin:0 0 8px">Reserve / Contact</h3>
+          <p class="sub" style="margin:0 0 10px">
+            Easiest launch: email + phone + Instagram DMs.
+          </p>
+
+          <div class="note">
+            Replace these:
+            <ul style="margin:10px 0 0; padding-left:18px">
+              <li>Email: <span class="kbd">reservations@hazeatl.com</span></li>
+              <li>Phone: <span class="kbd">(404) 000-0000</span></li>
+              <li>Instagram: <span class="kbd">@hazeatl</span></li>
+            </ul>
+          </div>
+
+          <div class="actions" style="margin-top:14px">
+            <a class="btn primary" href="mailto:reservations@hazeatl.com?subject=HAZE%20ATL%20Reservation%20Request">Email Reservations</a>
+            <a class="btn" href="tel:+14040000000">Call</a>
+          </div>
+
+          <p style="color:var(--muted); font-size:13px; margin-top:14px;">
+            Next upgrade: a real reservation form that texts/emails you.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="divider"></div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between">
+        <div>© <span id="yr"></span> HAZE ATL. All rights reserved.</div>
+        <div><a href="#top">Back to top ↑</a></div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
