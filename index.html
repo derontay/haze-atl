@@ -1,581 +1,239 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HAZE ATL | Luxury Hookah • Food • Nightlife</title>
-  <meta name="description" content="HAZE ATL — Luxury hookah lounge near ATL Airport. Premium hookah, kitchen favorites, VIP sections. Open daily 6PM–2AM. Address coming soon." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HAZE ATL | Luxury Hookah • Nightlife</title>
 
-  <style>
-    :root{
-      --bg:#050506;
-      --gold:#D4AF37;
-      --gold-soft:#b8962e;
-      --text:#f5f5f5;
-      --muted:#bfbfbf;
-      --card: rgba(255,255,255,0.03);
-      --line: rgba(212,175,55,0.15);
-      --shadow: 0 10px 40px rgba(0,0,0,0.6);
-      --radius: 16px;
-      --max: 1050px;
-    }
+<style>
+:root{
+--bg:#050506;
+--gold:#D4AF37;
+--text:#f5f5f5;
+--muted:#bfbfbf;
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#050506;
+color:var(--text);
+text-align:center;
+overflow-x:hidden;
+}
 
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: radial-gradient(circle at 20% 10%, rgba(212,175,55,0.08), transparent 40%), var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
-    }
+/* GOLD SMOKE GLOW BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 30% 30%, rgba(212,175,55,0.15), transparent 60%),
+radial-gradient(circle at 70% 70%, rgba(212,175,55,0.08), transparent 60%);
+filter:blur(60px);
+z-index:-2;
+}
 
-    /* Gold smoke glow background */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:
-        radial-gradient(circle at 22% 30%, rgba(212,175,55,0.18), transparent 60%),
-        radial-gradient(circle at 75% 60%, rgba(212,175,55,0.10), transparent 60%),
-        radial-gradient(circle at 45% 85%, rgba(212,175,55,0.06), transparent 60%);
-      filter: blur(55px);
-      opacity: .85;
-      z-index:-2;
-    }
+/* SOFT HAZE LAYER */
+body::after{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 40% 20%, rgba(255,255,255,0.05), transparent 60%),
+radial-gradient(circle at 60% 80%, rgba(255,255,255,0.04), transparent 60%);
+z-index:-1;
+}
 
-    /* Soft drifting haze layers */
-    .haze-wrap{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none;
-      opacity:.45;
-      filter: blur(8px);
-    }
-    .haze{
-      position:absolute;
-      width:80vmax; height:80vmax;
-      left:-25vmax; top:10vh;
-      border-radius:50%;
-      background:
-        radial-gradient(circle at 35% 35%, rgba(255,255,255,.20), transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(212,175,55,.12), transparent 60%),
-        radial-gradient(circle at 50% 85%, rgba(255,255,255,.10), transparent 55%);
-      mix-blend-mode: screen;
-      animation: drift 24s ease-in-out infinite;
-    }
-    .haze.h2{
-      width:90vmax; height:90vmax;
-      left:55vw; top:-15vh;
-      opacity:.35;
-      animation-duration: 30s;
-      animation-direction: reverse;
-    }
-    .haze.h3{
-      width:95vmax; height:95vmax;
-      left:20vw; top:55vh;
-      opacity:.25;
-      animation-duration: 34s;
-    }
-    @keyframes drift{
-      0%{ transform: translate(0,0) scale(1) rotate(0deg); }
-      50%{ transform: translate(10vw,-6vh) scale(1.08) rotate(10deg); }
-      100%{ transform: translate(0,0) scale(1) rotate(0deg); }
-    }
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
 
-    a{color:inherit; text-decoration:none}
+.banner{
+background:rgba(212,175,55,0.15);
+border:1px solid var(--gold);
+color:var(--gold);
+padding:10px;
+font-weight:bold;
+border-radius:8px;
+margin-bottom:15px;
+letter-spacing:1px;
+}
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(5,5,6,.88), rgba(5,5,6,.35));
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
+.tagline{
+color:var(--gold);
+letter-spacing:2px;
+margin-bottom:20px;
+font-weight:bold;
+font-size:13px;
+}
 
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:20px;
-    }
+.logo{
+width:min(320px, 70vw);
+margin: 6px auto 10px;
+display:block;
+filter: drop-shadow(0 0 26px rgba(212,175,55,0.55));
+}
 
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
+/* gold glow behind logo */
+.logoGlow{
+width:min(360px, 80vw);
+height:min(360px, 80vw);
+max-width:360px;
+max-height:360px;
+margin:-300px auto 0;
+border-radius:50%;
+background: radial-gradient(circle, rgba(212,175,55,.22), transparent 60%);
+filter: blur(20px);
+opacity:.9;
+pointer-events:none;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+.hero{
+font-size:44px;
+color:var(--gold);
+letter-spacing:2px;
+margin-bottom:10px;
+}
 
-    .brandMark{
-      width:44px; height:44px;
-      border-radius:14px;
-      background: linear-gradient(135deg, rgba(212,175,55,.95), rgba(184,150,46,.65));
-      box-shadow: 0 16px 30px rgba(212,175,55,.15);
-      border:1px solid rgba(255,255,255,.12);
-    }
+.sub{
+color:var(--muted);
+margin-bottom:20px;
+line-height:1.6;
+}
 
-    .brandTextTop{
-      font-weight:900;
-      letter-spacing:.9px;
-      color: rgba(255,255,255,.85);
-      font-size:14px;
-    }
-    .brandTextSub{
-      color: rgba(255,255,255,.45);
-      font-size:12px;
-    }
+.section{
+margin-top:40px;
+padding:20px;
+background:rgba(255,255,255,0.03);
+border-radius:14px;
+border:1px solid rgba(212,175,55,0.15);
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
 
-    .links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:flex-end;
-    }
-    .links a{
-      color: rgba(255,255,255,.65);
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid transparent;
-    }
-    .links a:hover{
-      color: var(--text);
-      border-color: rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-    }
+h2{
+color:var(--gold);
+margin-bottom:10px;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      font-weight:900;
-      letter-spacing:.2px;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(212,175,55,.95), rgba(184,150,46,.75));
-      color:#0b0b0c;
-      border-color: rgba(255,255,255,.18);
-      box-shadow: 0 10px 30px rgba(212,175,55,.18);
-    }
-    .btn.primary:hover{ filter: brightness(1.05); }
+.menu-item{
+margin:6px 0;
+}
 
-    .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
+.button{
+display:inline-block;
+margin-top:15px;
+padding:12px 24px;
+background:linear-gradient(135deg,#D4AF37,#b8962e);
+color:black;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+box-shadow:0 6px 20px rgba(212,175,55,0.4);
+transition:0.2s;
+}
 
-    .hero{
-      padding:56px 0 18px;
-    }
+.button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 30px rgba(212,175,55,0.5);
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 940px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-
-    .banner{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:9px 12px;
-      border-radius:999px;
-      background: rgba(212,175,55,.12);
-      border: 1px solid rgba(212,175,55,.35);
-      color: var(--gold);
-      font-weight:900;
-      letter-spacing:.8px;
-      text-transform: uppercase;
-      font-size:12px;
-    }
-
-    .tagline{
-      margin:12px 0 0;
-      color: rgba(212,175,55,.95);
-      font-weight:900;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-
-    .monogram{
-      margin: 18px 0 6px;
-      font-size: 86px;
-      line-height: 1;
-      color: var(--gold);
-      font-weight: 900;
-      text-shadow: 0 0 28px rgba(212,175,55,0.45);
-    }
-
-    .headline{
-      margin: 8px 0 10px;
-      font-size: clamp(38px, 4.8vw, 62px);
-      line-height: 1.02;
-      letter-spacing: 1.6px;
-      color: rgba(212,175,55,.98);
-      text-shadow: 0 0 18px rgba(212,175,55,0.18);
-      text-transform: uppercase;
-    }
-
-    .sub{
-      margin:0 0 14px;
-      color: rgba(255,255,255,.72);
-      font-size: 16px;
-      max-width: 62ch;
-    }
-
-    .pillRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin: 16px 0 16px;
-    }
-    .pill{
-      padding: 10px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.70);
-      font-size: 14px;
-    }
-
-    .actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 14px;
-    }
-
-    .small{
-      color: rgba(255,255,255,.55);
-      font-size: 13px;
-      margin-top: 12px;
-    }
-
-    .section{
-      padding: 18px 0;
-    }
-    h2{
-      margin:0 0 10px;
-      font-size: 22px;
-      letter-spacing: .2px;
-      color: rgba(212,175,55,.98);
-      text-transform: uppercase;
-    }
-
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    @media (max-width: 940px){
-      .grid3{ grid-template-columns: 1fr; }
-    }
-
-    .item h3{
-      margin:0 0 6px;
-      font-size:16px;
-      color: rgba(255,255,255,.90);
-      letter-spacing:.3px;
-      text-transform: uppercase;
-    }
-    .item p{
-      margin:0;
-      color: rgba(255,255,255,.70);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .divider{
-      height:1px;
-      background: rgba(255,255,255,.10);
-      margin: 18px 0;
-    }
-
-    .menuList{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.72);
-      line-height: 1.75;
-      font-size: 14px;
-    }
-    .menuList li strong{ color: rgba(255,255,255,.95); }
-
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:12px;
-    }
-    @media (max-width: 940px){
-      .gallery{ grid-template-columns: repeat(2, 1fr); }
-    }
-    .ph{
-      aspect-ratio: 1 / 1;
-      border-radius: 16px;
-      border:1px dashed rgba(212,175,55,.28);
-      background:
-        radial-gradient(circle at 35% 30%, rgba(212,175,55,.14), transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(255,255,255,.08), transparent 60%),
-        rgba(255,255,255,.02);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: rgba(255,255,255,.62);
-      font-weight:900;
-      letter-spacing: 1px;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-
-    footer{
-      padding: 26px 0 40px;
-      color: rgba(255,255,255,.55);
-    }
-
-    .twoCol{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
-    @media (max-width: 940px){
-      .twoCol{ grid-template-columns: 1fr; }
-    }
-  </style>
+.small{
+color:#9c9c9c;
+margin-top:10px;
+font-size:14px;
+}
+</style>
 </head>
 
 <body>
-  <!-- Animated haze background -->
-  <div class="haze-wrap" aria-hidden="true">
-    <div class="haze"></div>
-    <div class="haze h2"></div>
-    <div class="haze h3"></div>
-  </div>
 
-  <header>
-    <div class="wrap nav">
-      <div class="brand">
-        <div class="brandMark" aria-hidden="true"></div>
-        <div>
-          <div class="brandTextTop">HAZE ATL</div>
-          <div class="brandTextSub">Luxury Hookah • Food • Nightlife</div>
-        </div>
-      </div>
+<div class="container">
 
-      <nav class="links" aria-label="Primary">
-        <a href="#menu">Menu</a>
-        <a href="#vip">VIP</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#location">Location</a>
-        <a class="btn primary" href="#reserve">Reserve</a>
-      </nav>
-    </div>
-  </header>
+<div class="banner">
+🔥 GRAND OPENING COMING SOON 🔥
+</div>
 
-  <main class="wrap">
-    <section class="hero" id="top">
-      <div class="grid">
-        <div class="card">
-          <div class="banner">🔥 Grand Opening Coming Soon 🔥</div>
-          <div class="tagline">Atlanta’s New Nightlife Destination</div>
+<div class="tagline">
+ATLANTA'S NEW NIGHTLIFE DESTINATION
+</div>
 
-          <div class="monogram">H</div>
-          <h1 class="headline">HAZE ATL</h1>
+<!-- CENTER LOGO -->
+<img src="logo.png" class="logo" alt="HAZE ATL Logo">
+<div class="logoGlow"></div>
 
-          <p class="sub">
-            Where nightlife meets luxury. Premium hookah, elite vibes, and unforgettable nights minutes from ATL Airport.
-            Pull up, relax, and experience the atmosphere everyone will be talking about.
-          </p>
+<div class="hero">HAZE ATL</div>
 
-          <div class="pillRow">
-            <div class="pill">💨 Premium Hookah</div>
-            <div class="pill">🍽️ Kitchen Favorites</div>
-            <div class="pill">👑 VIP Sections</div>
-            <div class="pill">🕕 6PM–2AM Daily</div>
-          </div>
+<p class="sub">
+Where nightlife meets luxury. Premium hookah, elite vibes, and unforgettable nights minutes from ATL Airport.
+</p>
 
-          <div class="actions">
-            <a class="btn primary" href="#reserve">Reserve a Section</a>
-            <a class="btn" href="#menu">See Menu</a>
-            <a class="btn" href="#location">Location</a>
-          </div>
+<p class="small">
+Opening soon • VIP sections • Birthdays • Late-night vibes
+</p>
 
-          <div class="small">Opening soon • Birthdays • Celebrations • Late-night vibes</div>
-        </div>
+<a class="button" href="#reserve">Reserve a Section</a>
 
-        <div class="card">
-          <h2 style="margin:0 0 10px;">Tonight’s Vibe</h2>
-          <p class="sub" style="margin:0;">
-            Smooth lighting. Clean atmosphere. Music on point. Premium service.
-            If you’re outside—this is where you land.
-          </p>
+<div class="section">
+<h2>💨 Hookah Favorites</h2>
 
-          <div class="divider"></div>
+<div class="menu-item">White Peach</div>
+<div class="menu-item">Blue Mist</div>
+<div class="menu-item">Blueberry Vanilla Mint</div>
+<div class="menu-item">Watermelon Mint</div>
+<div class="menu-item">Love 66</div>
+<div class="menu-item">Strawberry Mango</div>
 
-          <div class="grid3" style="grid-template-columns:1fr; gap:12px;">
-            <div class="card item" style="box-shadow:none; background:rgba(255,255,255,.02);">
-              <h3>Reservations</h3>
-              <p>Tables, sections, birthdays, and special nights.</p>
-            </div>
-            <div class="card item" style="box-shadow:none; background:rgba(255,255,255,.02);">
-              <h3>Signature Nights</h3>
-              <p>R&B • DJ nights • themed events • curated vibes.</p>
-            </div>
-            <div class="card item" style="box-shadow:none; background:rgba(255,255,255,.02);">
-              <h3>Dress Code</h3>
-              <p>Upscale casual — come clean, bring the energy.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<p class="small">Signature mixes available</p>
+</div>
 
-    <section class="section" id="menu">
-      <h2>Menu Highlights</h2>
-      <p class="sub">Premium favorites, crowd-pleasers, and late-night plates built for the vibe.</p>
+<div class="section">
+<h2>🍽️ Kitchen Favorites</h2>
 
-      <div class="grid3">
-        <div class="card item">
-          <h3>Hookah Favorites</h3>
-          <ul class="menuList">
-            <li><strong>White Peach</strong></li>
-            <li><strong>Blue Mist</strong></li>
-            <li><strong>Blueberry Vanilla Mint</strong></li>
-            <li>Watermelon Mint</li>
-            <li>Love 66</li>
-            <li>Strawberry Mango</li>
-          </ul>
-          <div class="small">Signature mixes available (ATL Sunset • Haze Breeze • Midnight Chill)</div>
-        </div>
+<div class="menu-item">Honey Lemon Pepper Wings</div>
+<div class="menu-item">Cajun Seafood Fries</div>
+<div class="menu-item">Philly Cheesesteak Egg Rolls</div>
+<div class="menu-item">Garlic Butter Lamb Chops</div>
+<div class="menu-item">Chicken Alfredo Pasta</div>
+</div>
 
-        <div class="card item">
-          <h3>Kitchen Favorites</h3>
-          <ul class="menuList">
-            <li><strong>Honey Lemon Pepper Wings</strong></li>
-            <li><strong>Cajun Seafood Fries</strong></li>
-            <li><strong>Philly Cheesesteak Egg Rolls</strong></li>
-            <li>Garlic Butter Lamb Chops</li>
-            <li>Chicken Alfredo Pasta</li>
-          </ul>
-          <div class="small">Add-ons: extra coals • fruit head • hookah refill</div>
-        </div>
+<div class="section">
+<h2>👑 VIP & Events</h2>
+<p class="sub">
+VIP sections, birthdays, celebrations, and exclusive nightlife experiences.
+</p>
+</div>
 
-        <div class="card item">
-          <h3>Mocktails</h3>
-          <ul class="menuList">
-            <li><strong>Peach Paradise</strong></li>
-            <li><strong>Blue Lagoon Spritz</strong></li>
-            <li><strong>Tropical Sunset Punch</strong></li>
-            <li>Strawberry Mint Cooler</li>
-            <li>Mango Pineapple Splash</li>
-          </ul>
-          <div class="small">High profit + perfect with hookah.</div>
-        </div>
-      </div>
-    </section>
+<div class="section">
+<h2>📍 Location</h2>
+<p class="sub">
+College Park / Old National Hwy<br>
+Near ATL Airport<br>
+Address Coming Soon
+</p>
+</div>
 
-    <section class="section" id="vip">
-      <h2>VIP & Events</h2>
-      <div class="grid3">
-        <div class="card item">
-          <h3>VIP Table</h3>
-          <p>$150–$250 minimum • seats 4–6 • includes hookah</p>
-        </div>
-        <div class="card item">
-          <h3>Premium Section</h3>
-          <p>$300–$500 minimum • seats 6–10 • priority service</p>
-        </div>
-        <div class="card item">
-          <h3>Birthday Package</h3>
-          <p>VIP seating • LED sign • DJ shoutout • celebration energy</p>
-        </div>
-      </div>
-      <div class="small">We can adjust pricing based on your lounge size + market.</div>
-    </section>
+<div class="section">
+<h2>🕒 Hours</h2>
+<p class="sub">
+Open Daily<br>
+6 PM – 2 AM
+</p>
+</div>
 
-    <section class="section" id="gallery">
-      <h2>Gallery</h2>
-      <p class="sub">Placeholders for now — swap with real photos as soon as you have them.</p>
-      <div class="gallery">
-        <div class="ph">Lounge</div>
-        <div class="ph">VIP</div>
-        <div class="ph">Hookah</div>
-        <div class="ph">Food</div>
-      </div>
-    </section>
+<div class="section" id="reserve">
+<h2>📞 Reservations</h2>
+<p class="sub">
+Instagram: @HAZEATL<br>
+Phone: coming soon
+</p>
+<a class="button" href="#">DM to Book</a>
+</div>
 
-    <section class="section" id="location">
-      <h2>Location & Hours</h2>
-      <div class="twoCol">
-        <div class="card item">
-          <h3>Location</h3>
-          <p class="sub" style="margin:0;">
-            College Park / Old National Hwy (near ATL Airport)<br/>
-            <strong style="color:rgba(255,255,255,.95);">Address: Coming Soon</strong>
-          </p>
-        </div>
-        <div class="card item">
-          <h3>Hours</h3>
-          <p class="sub" style="margin:0;">
-            <strong style="color:rgba(255,255,255,.95);">Open Daily</strong><br/>
-            6:00 PM – 2:00 AM
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="reserve">
-      <h2>Reservations</h2>
-      <p class="sub">Fastest launch: use Instagram DMs (we’ll add a booking form next).</p>
-
-      <div class="twoCol">
-        <div class="card item">
-          <h3>Instagram</h3>
-          <p>Handle: <strong>@HAZEATL</strong> (placeholder until you confirm)</p>
-          <div class="actions">
-            <a class="btn primary" href="#" onclick="alert('Update this button with your real Instagram link once you confirm your handle.'); return false;">DM to Book</a>
-          </div>
-          <div class="small">Once you tell me the IG handle, I’ll link this button directly.</div>
-        </div>
-        <div class="card item">
-          <h3>Phone</h3>
-          <p><strong>Coming Soon</strong></p>
-          <div class="small">When you have it, we’ll add tap-to-call.</div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="divider"></div>
-      <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
-        <div>© <span id="yr"></span> HAZE ATL. All rights reserved.</div>
-        <div><a href="#top">Back to top ↑</a></div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+</div>
 </body>
 </html>
